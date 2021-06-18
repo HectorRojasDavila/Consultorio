@@ -1,3 +1,29 @@
-<h1>Medical System</h1>
+<div class="wrapper">
+    <app-main></app-main>
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
 
-<router-outlet></router-outlet>
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+            <!--/. container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <strong>Medical System &copy; 2021.</strong>
+        Derechos reservados.
+    </footer>
+</div>
+<!-- ./wrapper -->
