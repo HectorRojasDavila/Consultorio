@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "consultorio-medico-176bf": {
+      "hosting": {
+        "medical-system": [
+          "consultorio-medico-176bf"
+        ]
+      }
+    }
+  }
+}

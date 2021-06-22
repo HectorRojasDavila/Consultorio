@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { FormatStatusPipe } from '../../pipe/format-status.pipe'
 
 @Component({
   selector: 'app-lista-pacientes',
   templateUrl: './lista-pacientes.component.html',
   styleUrls: ['./lista-pacientes.component.css']
 })
-export class ListaPacientesComponent implements OnInit {
+export class ListaPacientesComponent {
 
-  constructor() { }
+  public pacientes: Observable<any[]>;
 
-  ngOnInit(): void {
+  constructor(db: AngularFirestore) {
+    this.pacientes = db.collection('pacientes').valueChanges();
   }
+
 
 }
