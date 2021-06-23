@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { environment} from '../environments/environment';
@@ -17,6 +18,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 import { ListaPacientesComponent } from './pages/lista-pacientes/lista-pacientes.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { FormatStatusPipe } from './pipe/format-status.pipe';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,14 +29,18 @@ import { FormatStatusPipe } from './pipe/format-status.pipe';
     RegistroComponent,
     ListaPacientesComponent,
     InicioComponent,
-    FormatStatusPipe
+    FormatStatusPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    ReactiveFormsModule, 
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AngularFirestoreModule],
   bootstrap: [AppComponent]
