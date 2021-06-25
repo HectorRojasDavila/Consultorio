@@ -1,37 +1,41 @@
 <!-- Content Header (Page header) -->
 <div class="content-header">
-    <div class="container-fluid">
-        <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Lista de pacientes</h1>
-            </div><!-- /.col -->
-        </div><!-- /.row -->
-        <div class="table-wrapper">
-            <table class="tabla">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Apellido Paterno</th>
-                  <th>Apellido Materno</th>
-                  <th>Peso</th>
-                  <th>Estatura</th>
-                  <th>Sexo</th>
-                  <th>Alergias</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr *ngFor="let paciente of pacientes | async">
-                  <td> {{paciente.nombre}} </td>
-                  <td> {{paciente.apellidoP}} </td>
-                  <td> {{paciente.apellidoM}} </td>
-                  <td> {{paciente.peso}} </td>
-                  <td> {{paciente.altura}} </td>
-                  <td> {{paciente.sexo | formatStatus}} </td>
-                  <td> {{paciente.aler_disca}} </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-    </div><!-- /.container-fluid -->
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1 class="m-0">Lista de pacientes</h1>
+      </div><!-- /.col -->
+    </div><!-- /.row -->
+    <div class="table-wrapper">
+      <table class="tabla">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Peso</th>
+            <th>Estatura</th>
+            <th>Sexo</th>
+            <th>Alergias</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let paciente of pacientes | async">
+            <td> {{paciente.nombre}} </td>
+            <td> {{paciente.apellidoP}} </td>
+            <td> {{paciente.apellidoM}} </td>
+            <td> {{paciente.peso}} </td>
+            <td> {{paciente.altura}} </td>
+            <td> {{paciente.sexo | formatStatus}} </td>
+            <td> {{paciente.aler_disca}} </td>
+            <td><button class="btn btn-primary">Editar</button></td>
+            <td><button class="btn btn-danger">Elimnar</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div><!-- /.container-fluid -->
 </div>
 <!-- /.content-header -->
