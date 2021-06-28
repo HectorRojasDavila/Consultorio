@@ -7,9 +7,10 @@
       </div><!-- /.col -->
     </div><!-- /.row -->
     <div class="table-wrapper">
-      <table class="tabla">
+      <h5 class="text-center" *ngIf="pacientes.length==0">No hay ningun registro para mostrar</h5>
+      <table *ngIf="pacientes.length >0" class="tabla">
         <thead>
-          <tr>
+          <tr >
             <th>Nombre</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
@@ -22,7 +23,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let paciente of pacientes | async">
+          <!-- *ngFor="let paciente of pacientes | async" -->
+          <tr *ngFor="let paciente of pacientes ">
             <td> {{paciente.nombre}} </td>
             <td> {{paciente.apellidoP}} </td>
             <td> {{paciente.apellidoM}} </td>
@@ -30,8 +32,8 @@
             <td> {{paciente.altura}} </td>
             <td> {{paciente.sexo | formatStatus}} </td>
             <td> {{paciente.aler_disca}} </td>
-            <td><button class="btn btn-primary">Editar</button></td>
-            <td><button class="btn btn-danger">Elimnar</button></td>
+            <td><button [routerLink]="['/editarPaciente/',paciente.id]" class="btn btn-primary">Editar</button></td>
+            <td><button (click)="eliminarPacientes(paciente.id)" class="btn btn-danger">Elimnar</button></td>
           </tr>
         </tbody>
       </table>

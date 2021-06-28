@@ -7,6 +7,7 @@ import { RegistroComponent } from './pages/registro/registro.component';
 const routes: Routes = [
   { path:"", component:InicioComponent },
   { path:"registro", component:RegistroComponent },
+  { path:"editarPaciente/:id", component:RegistroComponent },
   { path:"lista", component:ListaPacientesComponent }
 ];
 

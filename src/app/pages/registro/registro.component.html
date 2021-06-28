@@ -3,7 +3,11 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Registro de pacientes</h1>
+                <h1 class="m-0">{{ titulo }}
+                    <div *ngIf="loading" class="spinner-border float-right" role="status">
+                        <span class="sr-only">Loading...</span>
+                      </div>
+                </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -11,7 +15,7 @@
 <!-- /.content-header -->
 <span *ngIf="submitted && createRegistro.invalid " class="badge badge-danger">Todos los campos son obligatorios</span>
 <div class="col-12">
-    <form autocomplete="off" [formGroup]="createRegistro" (ngSubmit)="agregarRegistro()">
+    <form autocomplete="off" [formGroup]="createRegistro" (ngSubmit)="agregarEditarRegistro()" >
         
         <div class="row">
             
@@ -51,5 +55,10 @@
         <div class="form-check">
             <button type="submit" class="btn btn-primary" >Registrar</button>
         </div>
+        <div class="form-check">
+            <button routerLink="/lista" class="btn btn-primary">Volver</button>
+        </div>
+        
     </form>
+    
 </div><!-- /.col -->

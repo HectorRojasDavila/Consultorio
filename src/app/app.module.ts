@@ -19,6 +19,8 @@ import { ListaPacientesComponent } from './pages/lista-pacientes/lista-pacientes
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { FormatStatusPipe } from './pipe/format-status.pipe';
 import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -40,7 +42,9 @@ import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
     AngularFireAuthModule,
     ReactiveFormsModule, 
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [AngularFirestoreModule],
   bootstrap: [AppComponent]
