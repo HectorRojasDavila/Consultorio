@@ -22,6 +22,12 @@ import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
+import * as pdfFonts from "pdfmake/build/vfs_fonts"; // fonts provided for pdfmake
+
+// Set the fonts to use
+PdfMakeWrapper.setFonts(pdfFonts);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +38,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ListaPacientesComponent,
     InicioComponent,
     FormatStatusPipe,
-    
+
   ],
   imports: [
     BrowserModule,
@@ -40,7 +46,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     FormsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
