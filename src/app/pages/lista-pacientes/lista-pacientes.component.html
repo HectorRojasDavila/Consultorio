@@ -10,7 +10,7 @@
       <h5 class="text-center" *ngIf="pacientes.length==0">No hay ningun registro para mostrar</h5>
       <table *ngIf="pacientes.length >0" class="tabla">
         <thead>
-          <tr >
+          <tr>
             <th>Nombre</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
@@ -20,6 +20,7 @@
             <th>Alergias</th>
             <th>Editar</th>
             <th>Eliminar</th>
+            <th>Generar Receta</th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +34,13 @@
             <td> {{paciente.sexo | formatStatus}} </td>
             <td> {{paciente.aler_disca}} </td>
             <td><button [routerLink]="['/editarPaciente/',paciente.id]" class="btn btn-primary">Editar</button></td>
-            <td><button (click)="eliminarPacientes(paciente.id)" class="btn btn-danger">Elimnar</button></td>
+            <td><button (click)="eliminarPacientes(paciente.id)" class="btn btn-danger">Eliminar</button></td>
+            <td>
+              <div class="row">
+                <button routerLink="/receta" class="btn btn-secondary ml-2">Generar Receta</button>
+                <button class="btn btn-secondary ml-2">Ver Receta</button>
+              </div>
+            </td>
           </tr>
         </tbody>
       </table>

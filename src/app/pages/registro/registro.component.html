@@ -3,10 +3,10 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">{{ titulo }}
+                <h1 class="m-0">Pacientes
                     <div *ngIf="loading" class="spinner-border float-right" role="status">
                         <span class="sr-only">Loading...</span>
-                      </div>
+                    </div>
                 </h1>
             </div><!-- /.col -->
         </div><!-- /.row -->
@@ -15,21 +15,24 @@
 <!-- /.content-header -->
 <span *ngIf="submitted && createRegistro.invalid " class="badge badge-danger">Todos los campos son obligatorios</span>
 <div class="col-12">
-    <form autocomplete="off" [formGroup]="createRegistro" (ngSubmit)="agregarEditarRegistro()" >
-        
+    <form autocomplete="off" [formGroup]="createRegistro" (ngSubmit)="agregarEditarRegistro()">
+
         <div class="row">
-            
+
             <div class="form-group col-4">
                 <label for="nombre">Nombre</label>
-                <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Ingresar Nombre">
+                <input formControlName="nombre" type="text" class="form-control" id="nombre"
+                    placeholder="Ingresar Nombre">
             </div>
             <div class="form-group col-4">
                 <label for="apellido-pat">Apellido Paterno</label>
-                <input formControlName="apellidoP" type="text" class="form-control" id="apellido-pat" placeholder="Ingresar Apellido Paterno">
+                <input formControlName="apellidoP" type="text" class="form-control" id="apellido-pat"
+                    placeholder="Ingresar Apellido Paterno">
             </div>
             <div class="form-group col-4">
                 <label for="apellido-mat">Apellido Materno</label>
-                <input formControlName="apellidoM" type="text" class="form-control" id="apellido-mat" placeholder="Ingresar Apellido Materno">
+                <input formControlName="apellidoM" type="text" class="form-control" id="apellido-mat"
+                    placeholder="Ingresar Apellido Materno">
             </div>
         </div>
         <div class="row">
@@ -39,26 +42,33 @@
             </div>
             <div class="form-group col-4">
                 <label for="altura">Altura</label>
-                <input formControlName="altura" type="number" class="form-control" id="altura" placeholder="Ingresar Altura en cm , ejemplo 170">
+                <input formControlName="altura" type="number" class="form-control" id="altura"
+                    placeholder="Ingresar Altura en cm , ejemplo 170">
             </div>
             <div class="form-group col-4">
                 <label>Sexo</label>
-                <select formControlName="sexo" class="form-control"  >
-                    <option  *ngFor="let sex of sexs" [value]="sex.value">{{sex.viewValue}}</option>
+                <select formControlName="sexo" class="form-control">
+                    <option *ngFor="let sex of sexs" [value]="sex.value">{{sex.viewValue}}</option>
                 </select>
             </div>
         </div>
         <div class="form-group">
             <label>Alergias y/o discapacidades</label>
-            <textarea  formControlName="aler_disca" class="form-control" rows="3" placeholder="Ingresar alergias y/o discapacidades..."></textarea>
+            <textarea formControlName="aler_disca" class="form-control" rows="3"
+                placeholder="Ingresar alergias y/o discapacidades..."></textarea>
         </div>
-        <div class="form-check">
-            <button type="submit" class="btn btn-primary" >Registrar</button>
+        <div class="row">
+            <div class="form-check">
+                <button routerLink="/lista" class="btn btn-danger">
+                    <- Volver</button>
+            </div>
+            <div class="form-check">
+                <button type="submit" class="btn btn-primary">
+                    Registrar</button>
+            </div>
         </div>
-        <div class="form-check">
-            <button routerLink="/lista" class="btn btn-primary">Volver</button>
-        </div>
-        
+
+
     </form>
-    
+
 </div><!-- /.col -->
