@@ -23,7 +23,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PdfMakeWrapper } from 'pdfmake-wrapper';
-import * as pdfFonts from "pdfmake/build/vfs_fonts"; // fonts provided for pdfmake
+import * as pdfFonts from "pdfmake/build/vfs_fonts";
+import { VerRecetaComponent } from './pages/ver-receta/ver-receta.component'; // fonts provided for pdfmake
 
 // Set the fonts to use
 PdfMakeWrapper.setFonts(pdfFonts);
@@ -37,7 +38,8 @@ PdfMakeWrapper.setFonts(pdfFonts);
     RegistroComponent,
     ListaPacientesComponent,
     InicioComponent,
-    FormatStatusPipe
+    FormatStatusPipe,
+    VerRecetaComponent
   ],
   imports: [
     BrowserModule,

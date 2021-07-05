@@ -7,52 +7,34 @@
             </div><!-- /.col -->
         </div><!-- /.row -->
     </div><!-- /.container-fluid -->
-  </div>
-  <!-- /.content-header -->
-  <div class="col-12" >
-        <div class="row">
-            <div class="form-group col-8">
-                <label for="nombre">Dr.</label>
-                <input formControlName="nombre" type="text" class="form-control" id="nombre" placeholder="Ingresar Nombre" (change)="nombre = $event">
-            </div>
-            <div class="form-group col-4">
-                <label for="apellido-pat">Fecha</label>
-                <input formControlName="fecha" type="date" class="form-control" id="fecha" (change)="fecha = $event">
-            </div>
+</div>
+<!-- /.content-header -->
+<div class="col-12">
+    <div class="row">
+        <div class="form-group col-4">
+            <label for="fecha">Fecha</label>
+            <input formControlName="fecha" type="date" class="form-control" id="fecha" (change)="fecha = $event">
         </div>
-        <div class="row">
-            <div class="form-group col-12">
-                <label for="nombrePaciente">Nombre del paciente</label>
-                <input formControlName="nombrePaciente" type="text" class="form-control" id="nombrePaciente" placeholder="Ingresar Nombre del paciente" (change)="nombrePaciente = $event">
-            </div>
+        <div class="form-group col-4">
+            <label for="apellido-pat">Temperatura</label>
+            <input formControlName="temperatura" type="number" class="form-control" id="temperatura"
+                placeholder="Ingresar Temperatura">
         </div>
-        <div class="row">
-            <div class="form-group col-4">
-                <label for="peso">Peso</label>
-                <input formControlName="peso" type="number" class="form-control" id="peso" placeholder="Ingresar Peso" (change)="peso = $event">
-            </div>
-            <div class="form-group col-4">
-                <label for="altura">Altura</label>
-                <input formControlName="altura" type="number" class="form-control" id="altura" placeholder="Ingresar Altura en cm , ejemplo 170" (change)="altura = $event">
-            </div>
-            <div class="form-group col-4">
-                <label for="temperatura">Temperatura</label>
-                <input formControlName="temperatura" type="number" class="form-control" id="temperatura" placeholder="Ingresar temperatura " (change)="temperatura = $event">
-            </div>
+        <div class="form-group col-4">
+            <label for="apellido-mat">Presion Arterial</label>
+            <input formControlName="presion" type="number" class="form-control" id="presion"
+                placeholder="Ingresar Presion Arterial">
         </div>
-        <div class="row">
-            <div class="form-group col-12">
-                <label for="sintomas">Sintomas</label>
-                <input formControlName="sintomas" type="text" class="form-control" id="sintomas" placeholder="Ingresar sintomas" (change)="sintomas = $event">
-            </div>
-        </div>
-        <div class="row">
-            <div class="form-group col-12">
-                <label for="receta">Receta</label>
-                <input formControlName="receta" type="text" class="form-control" id="receta" placeholder="Ingresar receta" (change)="receta = $event" required>
-            </div>
-        </div>
-      <div class="form-check">
-          <button type="submit" class="btn btn-primary" (click)="makePDF()">Guardar</button>
-      </div>
-  </div><!-- /.col -->
+    </div>
+    <div class="form-group">
+        <label>Diagnostico Medico</label>
+        <textarea formControlName="aler_disca" class="form-control" rows="3" placeholder="Diagnostico"></textarea>
+    </div>
+    <div class="form-group">
+        <label>Tratamiento</label>
+        <textarea formControlName="aler_disca" class="form-control" rows="3" placeholder="Tratamiento"></textarea>
+    </div>
+    <div class="form-check">
+        <button type="submit" class="btn btn-primary" (click)="makePDF()">Generar Receta</button>
+    </div>
+</div><!-- /.col -->

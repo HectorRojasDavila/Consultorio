@@ -37,8 +37,8 @@
             <td><button (click)="eliminarPacientes(paciente.id)" class="btn btn-danger">Eliminar</button></td>
             <td>
               <div class="row">
-                <button routerLink="/receta" class="btn btn-secondary ml-2">Generar Receta</button>
-                <button class="btn btn-secondary ml-2">Ver Receta</button>
+                <button [routerLink]="['/receta/',paciente.id]" class="btn btn-secondary ml-2">Generar Receta</button>
+                <button [routerLink]="['/ver-receta/',paciente.id]" class="btn btn-secondary ml-2">Ver Receta</button>
               </div>
             </td>
           </tr>
