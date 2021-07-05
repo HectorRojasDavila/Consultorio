@@ -37,13 +37,7 @@ PdfMakeWrapper.setFonts(pdfFonts);
     RegistroComponent,
     ListaPacientesComponent,
     InicioComponent,
-<<<<<<< HEAD
     FormatStatusPipe
-    
-=======
-    FormatStatusPipe,
-
->>>>>>> 98307b687ae787105fa1110a195ce3435ac1e4e9
   ],
   imports: [
     BrowserModule,
