@@ -1,59 +1,66 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a routerLink="/" class="brand-link">
-        <span class="brand-text font-weight-light">Medical System</span>
-    </a>
+  <!-- Brand Logo -->
+  <a routerLink="/" class="brand-link">
+    <span class="brand-text font-weight-light">Medical System</span>
+  </a>
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <!-- Sidebar Menu -->
-        <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul
+        class="nav nav-pills nav-sidebar flex-column"
+        data-widget="treeview"
+        role="menu"
+        data-accordion="false"
+      >
+        <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
-                <li class="nav-item">
-                    <a routerLink="/registro" routerLinkActive="active" class="nav-link">
-                        <i class="nav-icon fas fa-plus-square"></i>
-                        <p>
-                            Registrar Paciente
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/lista" routerLinkActive="active" class="nav-link">
-                        <i class="nav-icon fas fa-list"></i>
-                        <p>
-                            Ver Pacientes
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Usuario
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="../charts/chartjs.html" class="nav-link">
-                                <i class="fas fa-cog nav-icon"></i>
-                                <p>Configuracion</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="../charts/flot.html" class="nav-link">
-                                <i class="fas fa-sign-out-alt nav-icon"></i>
-                                <p>Cerrar Sesion</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
+        <li class="nav-item">
+          <a routerLink="/registro" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-plus-square"></i>
+            <p>Registrar Paciente</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/lista" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-list "></i>
+            <p>Ver Pacientes</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/receta" routerLinkActive="active" class="nav-link">
+            <i class="nav-icon fas fa-print"></i>
+            <p>Generar Receta</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              Usuario
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="../charts/chartjs.html" class="nav-link">
+                <i class="fas fa-cog nav-icon"></i>
+                <p>Configuracion</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="../charts/flot.html" class="nav-link">
+                <i class="fas fa-sign-out-alt nav-icon"></i>
+                <p>Cerrar Sesion</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
 </aside>
