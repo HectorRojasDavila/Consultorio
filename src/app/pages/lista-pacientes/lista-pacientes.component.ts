@@ -14,7 +14,7 @@ import { FormatStatusPipe } from '../../pipe/format-status.pipe'
 })
 export class ListaPacientesComponent implements OnInit {
    pacientes : any[] = [];
-   
+
 
   // public pacientes: Observable<any[]>;
 
@@ -54,7 +54,7 @@ export class ListaPacientesComponent implements OnInit {
       });
     }).catch(err=>{
       console.log(err);
-      
+
     })
   }
 

@@ -31,7 +31,16 @@ export class FirebaseServiceService {
     return this.fireStore.collection("pacientes").doc(id).update(data);
   }
 
+  createReceta (receta:any): Promise<any> {
+    return this.fireStore.collection("receta").add(receta);
+  }
 
+  getReceta (): Observable<any> {
+    return this.fireStore.collection("receta").snapshotChanges();
+  }
 
+  deleteReceta (id:any): Promise<any> {
+    return this.fireStore.collection("receta").doc(id).delete();
+  }
 
 }

@@ -22,14 +22,14 @@
                 </thead>
                 <tbody>
                     <!-- *ngFor="let paciente of pacientes | async" -->
-                    <tr>
-                        <td>05/07/2021</td>
-                        <td>30</td>
-                        <td>50</td>
-                        <td>El paciente tiene tos</td>
-                        <td>Tomar paracetamol cada 8 hrs</td>
-                        <td><button class="btn btn-danger">Eliminar</button></td>
-                        <td><button class="btn btn-primary">Imprimir</button></td>
+                    <tr *ngFor="let receta of recetas">
+                        <td>{{receta.fecha}}</td>
+                        <td>{{receta.temperatura}}</td>
+                        <td>{{receta.presionArterial}}</td>
+                        <td>{{receta.diagnosticoMedico}}</td>
+                        <td>{{receta.tratamiento}}</td>
+                        <td><button (click)="deleteReceta(receta.id)" class="btn btn-danger">Eliminar</button></td>
+                        <td><button (click)="printPDF(receta.fecha, receta.temperatura, receta.presionArterial, receta.diagnosticoMedico, receta.tratamiento)" class="btn btn-primary">Imprimir</button></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Columns, Ol, PdfMakeWrapper, Txt } from 'pdfmake-wrapper';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { FirebaseServiceService } from 'src/app/services/firebase-service.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,76 +11,60 @@ import Swal from 'sweetalert2';
   styleUrls: ['./receta.component.css'],
 })
 export class RecetaComponent implements OnInit {
-  nombre: any = '';
-  fecha: any = '';
-  nombrePaciente: any = '';
-  peso: any = '';
-  altura: any = '';
-  temperatura: any = '';
-  sintomas: any = '';
-  receta: any = '';
+  registrarReceta: FormGroup;
+  submitted = false;
+  id: string | null;
+  loading = false;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private firebase: FirebaseServiceService,
+    private designar: ActivatedRoute,
+    private toastr: ToastrService
+  ) {
+    this.registrarReceta = formBuilder.group({
+      fecha: ['', Validators.required],
+      temperatura: ['', Validators.required],
+      presionArterial: ['', Validators.required],
+      diagnosticoMedico: ['', Validators.required],
+      tratamiento: ['', Validators.required],
+    });
+
+    this.id = this.designar.snapshot.paramMap.get('id');
+  }
 
   ngOnInit(): void {}
 
-  makePDF(): void {
-    const pdf = new PdfMakeWrapper();
-
-    pdf.pageSize('A4');
-
-    pdf.pageMargins([40, 60, 60, 60]);
-
-    pdf.header(new Txt('Receta').fontSize(16).alignment('center').margin(40).end);
-
-    try {
-      pdf.add(pdf.ln(6));
-      pdf.add([new Txt('Nombre del Dr. \n \n' + this.nombre.target.value).bold().margin([60, 0, 0, 0]).end,
-         new Ol([
-          'Fecha:  ' + this.fecha.target.value + pdf.ln(2),
-          'Peso:  ' + this.peso.target.value + pdf.ln(2),
-          'Altura:  ' + this.altura.target.value + pdf.ln(2),
-          'Temperatura:  ' + this.temperatura.target.value])
-          .bold()
-          .type('none')
-          .margin([340, -40, 0, 0]).end
-      ]);
-
-      pdf.add(pdf.ln(3));
-      pdf.add(
-        new Txt('Nombre del paciente')
-          .alignment('left')
-          .bold()
-          .margin([60, 0, 0, 0]).end
-      );
-      pdf.add(pdf.ln(1));
-      pdf.add(
-        new Txt(this.nombrePaciente.target.value).margin([60, 0, 0, 0]).end
-      );
-
-      pdf.add(pdf.ln(3));
-      pdf.add(new Txt('Sintomas').bold().margin([60, 0, 0, 0]).end);
-      pdf.add(pdf.ln(1));
-      pdf.add(new Txt(this.sintomas.target.value).margin([60, 0, 0, 0]).end);
-
-      pdf.add(pdf.ln(3));
-      pdf.add(new Txt('Receta').bold().margin([60, 0, 0, 0]).end);
-      pdf.add(pdf.ln(1));
-      pdf.add(new Txt(this.receta.target.value).margin([60, 0, 0, 0]).end);
-
-      throw new Error("");
-
-    } catch (error) {
-      if (error instanceof TypeError) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          html: `<span style="color:#FFFF">Verifica los campos<span>`
+  agregarReceta() {
+    const receta: any = {
+      fecha: this.registrarReceta.value.fecha,
+      temperatura: this.registrarReceta.value.temperatura,
+      presionArterial: this.registrarReceta.value.presionArterial,
+      diagnosticoMedico: this.registrarReceta.value.diagnosticoMedico,
+      tratamiento: this.registrarReceta.value.tratamiento,
+      ref_id: this.id,
+    };
+    if (this.registrarReceta.valid) {
+      this.loading = true;
+      this.firebase
+        .createReceta(receta)
+        .then(() => {
+          this.toastr.success('Se registro con exito', 'Receta registrada', {
+            positionClass: 'toast-bottom-right',
+          });
+          this.loading = false;
+          this.router.navigate(['/lista']);
+        })
+        .catch((err) => {
+          this.loading = false;
         });
-      } else {
-        pdf.create().open();
-        this.router.navigate(['/lista']);
-      }
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        html: `<span style="color:#FFFF">Verifica los campos<span>`,
+      });
     }
   }
 }
